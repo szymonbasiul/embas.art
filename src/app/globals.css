@@ -11,8 +11,6 @@
 }
 
 html {
-	/* just for dev */
-	height: 1600px;
 	scroll-behavior: smooth;
 	min-width: 320px;
 }

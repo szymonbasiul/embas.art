@@ -1,8 +1,8 @@
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
-import SectionOne from './components/SectionOne';
-import SectionTwo from './components/SectionTwo';
+import Footer from './pages/Footer';
+import Header from './pages/Header';
+import Navbar from './pages/Navbar';
+import Biography from './pages/Biography';
+import Gallery from './pages/Gallery';
 
 export default function Home() {
 	return (
@@ -10,8 +10,8 @@ export default function Home() {
 			<Navbar />
 			<Header />
 			<main>
-				<SectionOne />
-				<SectionTwo />
+				<Biography />
+				<Gallery />
 			</main>
 			<Footer />
 		</div>
