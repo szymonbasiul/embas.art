@@ -16,7 +16,7 @@ export default function HorizontalCarousel() {
 
 	const [duration, setDuration] = useState(FAST_DURATION);
 
-	let [ref, { width }] = useMeasure();
+	const [ref, { width }] = useMeasure();
 	const xTranslation = useMotionValue(0);
 
 	const [mustFinish, setMustFinish] = useState(false);
@@ -24,7 +24,7 @@ export default function HorizontalCarousel() {
 
 	useEffect(() => {
 		let controls;
-		let finalPosition = -width / 2 - 8;
+		const finalPosition = -width / 2 - 8;
 
 		if (mustFinish) {
 			controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
