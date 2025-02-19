@@ -24,41 +24,51 @@ export default function Navbar() {
 
 	return (
 		<nav
-			className={`nav justify-between flex p-5 h-[110px] w-full items-center bg-dark text-white top-0 sticky transition-all delay-100 duration-500 ease z-30 ${
+			className={`nav justify-between flex h-[110px] w-full items-center bg-dark text-white top-0 sticky transition-all delay-100 duration-500 ease z-30 ${
 				scroll ? `bg-opacity-75` : `bg-opacity-100`
 			}`}
 		>
-			<div className="logo flex w-auto">
-				<Link href="#" className="flex container">
+			<div className="logo flex w-auto ">
+				<Link href="#home" className="flex container h-full p-5">
 					<Image src="icon.svg" width={60} height={60} alt="Logo MB" />
 					<p className="text-2xl flex h-full p-4 font-bold">eMBe</p>
 				</Link>
 			</div>
-			<div className="nav-links flex">
-				<ul className="md:flex hidden space-x-4 gap-10 items-center">
-					<li>
+			<div className="nav-links flex h-full px-5">
+				<div className="md:flex hidden justify-between items-center h-full ">
+					<button className="flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-25 delay-100 duration-500 ease-in-out px-5">
+						<Link href="#home">
+							<div className="hover:text-beigeLight delay-100 duration-500 ease-in-out text-2xl text-center font-bold">
+								Home
+							</div>
+						</Link>
+					</button>
+					<button className="flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-25 delay-100 duration-500 ease-in-out px-5">
 						<Link href="#biography">
-							<div className="hover:text-beigeLight delay-100 duration-500 ease-in-out text-2xl font-bold">
+							<div className="hover:text-beigeLight delay-100 duration-500 ease-in-out text-2xl text-center font-bold">
 								Biografia
 							</div>
 						</Link>
-					</li>
-					<li>
+					</button>
+					<button className="flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-25 delay-100 duration-500 ease-in-out px-5">
 						<Link href="#gallery">
 							<div className="hover:text-beigeLight delay-100 duration-500 ease-in-out text-2xl font-bold">
 								Galeria
 							</div>
 						</Link>
-					</li>
-					<li>
+					</button>
+					<button className="flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-25 delay-100 duration-500 ease-in-out px-5">
 						<Link href="#contact">
 							<div className="hover:text-beigeLight delay-100 duration-500 ease-in-out text-2xl font-bold">
 								Kontakt
 							</div>
 						</Link>
-					</li>
-				</ul>
-				<button className="menu md:hidden" onClick={() => setOpen((x) => !x)}>
+					</button>
+				</div>
+				<button
+					className="menu md:hidden p-5"
+					onClick={() => setOpen((x) => !x)}
+				>
 					{open ? (
 						<Image src={close} width={60} height={60} alt="Close menu" />
 					) : (

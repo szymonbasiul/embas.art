@@ -1,10 +1,10 @@
 export default function Biography() {
 	return (
-		<section>
-			<h2 className="section-title container mt-[2em] mb-[1em] text-dark text-4xl md:text-3xl sm:text-2xl text-center font-bold uppercase">
+		<section id="biography" className="biography bg-beigeLight">
+			<h2 className="section-title container pt-[2em] pb-[1em] text-dark text-4xl md:text-3xl sm:text-2xl text-center font-bold uppercase">
 				Biografia
 			</h2>
-			<div className="container p-4 mt-[2em] mb-[1em] text-base text-justify md:text-lg sm:text-md leading-relaxed">
+			<div className="container p-4 mt-[2em] text-base text-justify md:text-lg sm:text-md leading-relaxed">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nihil
 				impedit consequatur? Quod aperiam iste eum veritatis laboriosam fugiat,
 				aliquam harum beatae perferendis. Enim ad blanditiis totam nihil rem ex?
