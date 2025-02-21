@@ -4,6 +4,7 @@ import Image from 'next/image';
 import close from '../img/close.svg';
 import burger from '../img/burger-menu.svg';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Navbar() {
 	const sectionIds = ['home', 'biography', 'gallery', 'contact'];
@@ -28,7 +29,7 @@ export default function Navbar() {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			if (window.scrollY > 50) {
+			if (window.scrollY > 100) {
 				setScroll(true);
 			} else {
 				setScroll(false);
@@ -42,8 +43,8 @@ export default function Navbar() {
 
 	return (
 		<nav
-			className={`nav justify-between flex h-[110px] w-full items-center bg-dark text-white top-0 sticky transition-all delay-100 duration-500 ease z-30 ${
-				scroll ? `bg-opacity-75` : `bg-opacity-100`
+			className={`nav justify-between flex h-[110px] w-full items-center bg-dark text-white top-0 sticky transition-all delay-200 duration-500 ease z-30 ${
+				scroll ? `bg-opacity-85` : `bg-opacity-100`
 			}`}
 		>
 			<div className="logo flex w-auto ">
@@ -77,7 +78,7 @@ export default function Navbar() {
 					))}
 				</ul>
 				<button
-					className="menu md:hidden p-5"
+					className="menu md:hidden p-5 z-30"
 					onClick={() => setOpen((x) => !x)}
 				>
 					{open ? (
@@ -87,6 +88,38 @@ export default function Navbar() {
 					)}
 				</button>
 			</div>
+			{open ? (
+				<motion.div
+					className={`mobile-nav flex-col fixed block bg-dark bg-opacity-85 top-[110px] w-screen h-screen transition-all delay-300 duration-600 ease-in-out z-20`}
+				>
+					<ul className="justify-between items-center h-screen table-of-contents">
+						{sectionIds.map((sectionId, i) => (
+							<li
+								key={i}
+								className={`flex justify-center items-center hover:bg-darkLight hover:bg-opacity-25 hover:text-beigeLight delay-100 duration-500 ease-in-out uppercase ${
+									sectionId === activeLink
+										? 'bg-darkLight bg-opacity-25 text-beigeLight delay-100 duration-500 ease-in-out'
+										: ''
+								} `}
+							>
+								<Link
+									href={`#${sectionId}`}
+									onClick={() => setOpen((x) => !x)}
+									className={`flex w-full h-full items-center justify-center p-5 ${
+										sectionId === activeLink ? 'active-link' : ''
+									}`}
+								>
+									<div className="text-2xl text-center font-bold">
+										{sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}
+									</div>
+								</Link>
+							</li>
+						))}
+					</ul>
+				</motion.div>
+			) : (
+				''
+			)}
 		</nav>
 	);
 }
