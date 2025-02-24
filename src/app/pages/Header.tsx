@@ -13,11 +13,11 @@ export default function Header() {
 						layout="fill"
 						objectFit="cover"
 						objectPosition="center"
-					></Image>
+					/>
 				</div>
-				<div className="absolute inset-0 flex items-center justify-center  bg-black bg-opacity-50 z-20">
-					<div className="container text-center">
-						<h1 className="text-4xl md:text-3xl sm:text-2xl font-semibold mb-2 text-white">
+				<div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
+					<div className="container text-center px-4">
+						<h1 className="text-4xl md:text-3xl sm:text-2xl xl:text-5xl font-semibold mb-4 text-white drop-shadow-lg">
 							W stronę piękna: Sztuka tradycyjna
 						</h1>
 					</div>

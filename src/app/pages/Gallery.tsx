@@ -4,7 +4,7 @@ import HorizontalCarousel from '../components/HorizontalCarousel';
 
 export default function Gallery() {
 	return (
-		<section id="gallery" className="gallery bg-dark text-beigeLight">
+		<section id="galeria" className="gallery bg-dark text-beigeLight">
 			<h2 className="section-title container pt-[2em] pb-[1em] text-beigeLight text-4xl md:text-3xl sm:text-2xl text-center font-bold uppercase">
 				Galeria
 			</h2>
