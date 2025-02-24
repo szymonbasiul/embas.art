@@ -8,7 +8,6 @@ import Link from 'next/link';
 export default function Navbar() {
 	const sectionIds = ['home', 'biografia', 'galeria', 'kontakt'];
 
-	const [open, setOpen] = useState(false);
 	const [scroll, setScroll] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const [activeLink, setActiveLink] = useState('home');
@@ -42,78 +41,9 @@ export default function Navbar() {
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+	}, [determineActiveSection]);
 
 	return (
-		// <nav
-		// 	className={`nav justify-between flex h-[110px] w-full items-center bg-dark text-white top-0 sticky transition-all delay-200 duration-500 ease z-30 ${
-		// 		scroll ? `bg-opacity-85` : `bg-opacity-100`
-		// 	}`}
-		// >
-		// 	<div className="logo flex w-auto ">
-		// 		<Link href="#home" className="flex container h-full p-5">
-		// 			<Image src="icon.svg" width={60} height={60} alt="Logo MB" />
-		// 			<p className="text-2xl flex h-full p-4 font-bold">eMBe</p>
-		// 		</Link>
-		// 	</div>
-		// 	<div className="nav-links flex h-full px-5">
-		// 		<ul className="md:flex hidden justify-between items-center h-full table-of-contents">
-		// 			{sectionIds.map((sectionId, i) => (
-		// 				<li
-		// 					key={i}
-		// 					className={`flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-25 hover:text-beigeLight delay-100 duration-500 ease-in-out px-5 uppercase ${
-		// 						sectionId === activeLink
-		// 							? 'bg-darkLight bg-opacity-25 text-beigeLight delay-100 duration-500 ease-in-out'
-		// 							: ''
-		// 					} `}
-		// 				>
-		// 					<Link
-		// 						href={`#${sectionId}`}
-		// 						className={`flex w-full h-full items-center justify-center ${
-		// 							sectionId === activeLink ? 'active-link' : ''
-		// 						}`}
-		// 					>
-		// 						<div className="text-2xl text-center font-bold">
-		// 							{sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}
-		// 						</div>
-		// 					</Link>
-		// 				</li>
-		// 			))}
-		// 		</ul>
-		// 	</div>
-		// 	{isVisible && (
-		// 		<div
-		// 			className={`mobile-nav flex-col fixed block bg-dark bg-opacity-85 top-[110px] w-screen h-screen  transition-transform delay-300 duration-600 ease-in-out z-20 ${
-		// 				isVisible ? 'translate-x-full' : '-translate-x-full'
-		// 			}`}
-		// 		>
-		// 			<ul className="justify-between items-center h-screen table-of-contents">
-		// 				{sectionIds.map((sectionId, i) => (
-		// 					<li
-		// 						key={i}
-		// 						className={`flex justify-center items-center hover:bg-darkLight hover:bg-opacity-25 hover:text-beigeLight delay-100 duration-500 ease-in-out uppercase ${
-		// 							sectionId === activeLink
-		// 								? 'bg-darkLight bg-opacity-25 text-beigeLight delay-100 duration-500 ease-in-out'
-		// 								: ''
-		// 						} `}
-		// 					>
-		// 						<Link
-		// 							href={`#${sectionId}`}
-		// 							onClick={toggleMenu}
-		// 							className={`flex w-full h-full items-center justify-center p-5 ${
-		// 								sectionId === activeLink ? 'active-link' : ''
-		// 							}`}
-		// 						>
-		// 							<div className="text-2xl text-center font-bold">
-		// 								{sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}
-		// 							</div>
-		// 						</Link>
-		// 					</li>
-		// 				))}
-		// 			</ul>
-		// 		</div>
-		// 	)}
-		// </nav>
 		<nav
 			className={`nav justify-between flex h-[110px] w-full items-center bg-dark text-white top-0 sticky transition-all delay-200 duration-500 ease z-30 ${
 				scroll ? 'bg-opacity-85' : 'bg-opacity-100'

@@ -1,10 +1,11 @@
 'use client';
+import { FormEvent } from 'react';
 import phone from '../img/call.svg';
 import mail from '../img/mail.svg';
 import work from '../img/work.svg';
 import Image from 'next/image';
 export default function Contact() {
-	async function handleSubmit(e) {
+	async function handleSubmit(e: FormEvent<HTMLFormElement>) {
 		e.preventDefault();
 		const response = await fetch('https://api.web3forms.com/submit', {
 			method: 'POST',
@@ -14,9 +15,9 @@ export default function Contact() {
 			},
 			body: JSON.stringify({
 				access_key: 'cc991541-8f2f-48a6-911e-19b03bc27d9f',
-				name: e.target.name.value,
-				email: e.target.email.value,
-				message: e.target.message.value,
+				name: (e.target as HTMLFormElement).name.valueOf,
+				email: (e.target as HTMLFormElement).email.value,
+				message: (e.target as HTMLFormElement).message.value,
 			}),
 		});
 		const result = await response.json();
@@ -66,7 +67,9 @@ export default function Contact() {
 									</div>
 								</div>
 							</div>
-							<p className='pt-2 text-dark md:text-left'>Lub napisz korzystając z dostępnego formularza.</p>
+							<p className="pt-2 text-dark md:text-left">
+								Lub napisz korzystając z dostępnego formularza.
+							</p>
 						</div>
 
 						<form
