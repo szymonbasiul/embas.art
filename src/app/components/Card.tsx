@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import arrow from '../../../public/images/vercel.svg';
+import arrow from '../../../public/vercel.svg';
 import React from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';

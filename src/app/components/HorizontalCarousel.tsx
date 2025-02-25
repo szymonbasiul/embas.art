@@ -5,10 +5,11 @@ import { useEffect, useState } from 'react';
 
 export default function HorizontalCarousel() {
 	const images = [
-		'/street-art.jpg',
-		'/winter.jpg',
-		'/folk-art.jpg',
-		'/birmingham.jpg',
+		'../../../public/street-art.jpg',
+		'../../../public/winter.jpg',
+		'../../../public/folk-art.jpg',
+		'../../../public/splash.jpg',
+		'../../../public/hands.jpg',
 	];
 
 	const FAST_DURATION = 25;

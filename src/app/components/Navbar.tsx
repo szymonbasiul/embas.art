@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import close from '../images/close.svg';
-import burger from '../images/burger-menu.svg';
+import close from '../../../public/close.svg';
+import burger from '../../../public/burger-menu.svg';
 import Link from 'next/link';
 
 export default function Navbar() {
