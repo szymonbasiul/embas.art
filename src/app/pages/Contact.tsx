@@ -28,15 +28,15 @@ export default function Contact() {
 
 	return (
 		<section id="kontakt" className="contact">
-			<footer className="bg-beigeLight text-dark text-center p-4">
+			<footer className="text-beigeLight bg-dark text-center p-4">
 				<div className="container flex flex-col items-center justify-center p-4 text-base text-justify md:text-lg sm:text-md leading-relaxed">
-					<h2 className="section-title pt-[2em] pb-[1em] text-dark text-4xl md:text-3xl sm:text-2xl font-bold uppercase drop-shadow-lg">
+					<h2 className="section-title pt-[2em] pb-[1em] text-beigeLight text-4xl md:text-3xl sm:text-2xl font-bold uppercase drop-shadow-lg">
 						Kontakt
 					</h2>
 
 					<div className="flex flex-col container md:flex-row w-full rounded-xl shadow-2xl shadow-darkLight/30 p-8 space-y-8 md:space-y-0 md:gap-8">
 						<div className="contact-info w-full md:w-1/2 flex flex-col text-xl space-y-6 gap-5">
-							<p className="pt-2 text-dark md:text-left">
+							<p className="pt-2 text-beigeLight md:text-left">
 								Jeśli masz pytania, sugestie lub po prostu chcesz nawiązać
 								relację, skontaktuj się ze mną. Możesz to zrobić korzystając z
 								poniższych danych:
@@ -67,8 +67,8 @@ export default function Contact() {
 									</div>
 								</div>
 							</div>
-							<p className="pt-2 text-dark md:text-left">
-								Lub napisz korzystając z dostępnego formularza.
+							<p className="pt-2 text-beigeLight md:text-left">
+								Lub napisz do mnie korzystając z dostępnego formularza.
 							</p>
 						</div>
 
@@ -78,20 +78,20 @@ export default function Contact() {
 						>
 							<div className="form-group">
 								<label htmlFor="name" className="text-lg font-semibold">
-									Name
+									Imię
 								</label>
 								<input
 									type="text"
 									id="name"
 									name="name"
-									placeholder="John"
+									placeholder="Jan"
 									className="w-full p-3 mt-2 border border-gray-300 rounded-md"
 									required
 								/>
 							</div>
 							<div className="form-group">
 								<label htmlFor="email" className="text-lg font-semibold">
-									Email
+									E-mail
 								</label>
 								<input
 									type="email"
@@ -104,7 +104,7 @@ export default function Contact() {
 							</div>
 							<div className="form-group">
 								<label htmlFor="message" className="text-lg font-semibold">
-									Message
+									Wiadomość
 								</label>
 								<textarea
 									id="message"
@@ -116,9 +116,9 @@ export default function Contact() {
 							</div>
 							<button
 								type="submit"
-								className="w-full p-3 mt-4 bg-darkLight text-white rounded-md hover:bg-dark transition duration-300"
+								className="w-full p-3 mt-4 text-darkLight bg-beigeLight rounded-md hover:bg-beige transition duration-300"
 							>
-								Submit
+								Wyślij
 							</button>
 						</form>
 					</div>

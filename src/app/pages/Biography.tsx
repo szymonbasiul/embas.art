@@ -1,6 +1,6 @@
 export default function Biography() {
 	return (
-		<section id="biografia" className="biography bg-beigeLight text-dark">
+		<section id="biografia" className="biography text-beigeLight bg-dark">
 			<h2 className="section-title container pt-[2em] pb-[1em]  text-4xl md:text-3xl sm:text-2xl text-center font-bold uppercase">
 				Biografia
 			</h2>

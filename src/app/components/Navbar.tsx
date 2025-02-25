@@ -45,14 +45,14 @@ export default function Navbar() {
 
 	return (
 		<nav
-			className={`nav justify-between flex h-[110px] w-full items-center bg-dark text-white top-0 sticky transition-all delay-200 duration-500 ease z-30 ${
+			className={`nav justify-between flex h-[110px] w-full items-center bg-dark text-beigeLight top-0 sticky transition-all delay-200 duration-500 ease z-30 ${
 				scroll ? 'bg-opacity-85' : 'bg-opacity-100'
 			}`}
 		>
 			<div className="logo flex w-auto ">
 				<Link href="#home" className="flex container h-full p-5">
 					<Image src="icon.svg" width={60} height={60} alt="Logo MB" />
-					<p className="text-2xl flex h-full p-4 font-bold">eMBe</p>{' '}
+					<p className="text-2xl flex h-full p-4 font-bold">Marek Basiul</p>{' '}
 				</Link>
 			</div>
 			<div className="nav-links flex h-full px-5">
@@ -60,14 +60,14 @@ export default function Navbar() {
 					{sectionIds.map((sectionId, i) => (
 						<li
 							key={i}
-							className={`flex h-full justify-center items-center hover:bg-white/25 hover:text-dark delay-100 duration-500 ease-in-out px-5 uppercase ${
-								sectionId === activeLink ? 'bg-white/25 text-dark' : ''
+							className={`flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-25 delay-100 duration-500 ease-in-out px-5 uppercase ${
+								sectionId === activeLink ? 'hover:bg-darkLight hover:bg-opacity-25' : ''
 							}`}
 						>
 							<Link
 								href={`#${sectionId}`}
-								className={`flex w-full h-full items-center justify-center ${
-									sectionId === activeLink ? 'active-link' : ''
+								className={`flex w-full h-full items-center justify-center  ${
+									sectionId === activeLink ? 'active-link ' : ''
 								}`}
 							>
 								<div className="text-2xl text-center font-bold">

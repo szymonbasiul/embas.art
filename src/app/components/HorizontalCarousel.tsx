@@ -33,7 +33,6 @@ export default function HorizontalCarousel() {
 				duration: duration * (1 - xTranslation.get() / finalPosition),
 				onComplete: () => {
 					setMustFinish(false);
-					setRerender(!rerender);
 				},
 			});
 		} else {

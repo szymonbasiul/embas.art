@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-	title: 'MBe Art',
+	title: 'Marek Basiul',
 	description: 'W stronę piękna: Sztuka tradycyjna',
 };
 

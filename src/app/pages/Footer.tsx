@@ -4,7 +4,7 @@ import facebook from '../../../public/facebook.svg';
 
 export default function Footer() {
 	return (
-		<section id="footer" className="footer bg-dark text-white">
+		<section id="footer" className="footer bg-dark text-beigeLight">
 			<footer className="container px-4 py-8 text-center">
 				<div className="social-media flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
 					<p className="font-bold">Social media:</p>
@@ -20,7 +20,7 @@ export default function Footer() {
 					</div>
 				</div>
 				<p className="text-sm sm:text-base mt-4">
-					&copy; 2025 eMBe. Wszelkie prawa zastrzeżone.
+					&copy; 2025 Top Notch Development Szymon Basiul. Wszelkie prawa zastrzeżone.
 				</p>
 			</footer>
 		</section>
