@@ -1,8 +1,8 @@
 'use client';
 import { FormEvent } from 'react';
-import phone from '../img/call.svg';
-import mail from '../img/mail.svg';
-import work from '../img/work.svg';
+import phone from '../images/call.svg';
+import mail from '../images/mail.svg';
+import work from '../images/work.svg';
 import Image from 'next/image';
 export default function Contact() {
 	async function handleSubmit(e: FormEvent<HTMLFormElement>) {

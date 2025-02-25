@@ -1,4 +1,4 @@
-import backgroundImage from '../img/hero-graphic-1.jpg';
+import backgroundImage from '../images/hero-graphic-1.jpg';
 import Image from 'next/image';
 
 export default function Header() {

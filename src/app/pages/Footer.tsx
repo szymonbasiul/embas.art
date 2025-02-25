@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import facebook from '../img/facebook.svg';
+import facebook from '../images/facebook.svg';
 
 export default function Footer() {
 	return (
