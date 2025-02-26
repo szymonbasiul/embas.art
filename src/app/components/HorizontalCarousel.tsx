@@ -4,48 +4,45 @@ import { animate, motion, useMotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 export default function HorizontalCarousel() {
-	const images = [
-		'../../../public/street-art.jpg',
-		'../../../public/winter.jpg',
-		'../../../public/folk-art.jpg',
-		'../../../public/splash.jpg',
-		'../../../public/hands.jpg',
+	const images: string[] = [
+		'/street-art.jpg',
+		'/winter.jpg',
+		'/folk-art.jpg',
+		'/splash.jpg',
+		'/hands.jpg',
 	];
 
-	const FAST_DURATION = 25;
-	const SLOW_DURATION = 75;
-
-	const [duration, setDuration] = useState(FAST_DURATION);
+	const FAST_DURATION = 65;
 
 	const [ref, { width }] = useMeasure();
 	const xTranslation = useMotionValue(0);
-
-	const [mustFinish, setMustFinish] = useState(false);
-	const [rerender, setRerender] = useState(false);
+	const [isHovering, setIsHovering] = useState(false);
 
 	useEffect(() => {
-		let controls;
 		const finalPosition = -width / 2 - 8;
 
-		if (mustFinish) {
-			controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
-				ease: 'linear',
-				duration: duration * (1 - xTranslation.get() / finalPosition),
-				onComplete: () => {
-					setMustFinish(false);
-				},
-			});
+		const controls = animate(xTranslation, finalPosition, {
+			ease: 'linear',
+			duration: FAST_DURATION,
+			repeat: Infinity,
+			repeatType: 'loop',
+		});
+
+		return () => controls.stop();
+	}, [xTranslation, width]);
+
+	useEffect(() => {
+		if (isHovering) {
+			xTranslation.stop();
 		} else {
-			controls = animate(xTranslation, [0, finalPosition], {
+			animate(xTranslation, -width / 2 - 8, {
 				ease: 'linear',
-				duration: duration,
+				duration: FAST_DURATION,
 				repeat: Infinity,
 				repeatType: 'loop',
-				repeatDelay: 0,
 			});
 		}
-		return controls?.stop;
-	}, [xTranslation, width, duration, rerender, mustFinish]);
+	}, [isHovering, xTranslation, width]);
 
 	return (
 		<motion.div
@@ -53,12 +50,10 @@ export default function HorizontalCarousel() {
 			ref={ref}
 			style={{ x: xTranslation }}
 			onHoverStart={() => {
-				setMustFinish(true);
-				setDuration(SLOW_DURATION);
+				setIsHovering(true);
 			}}
 			onHoverEnd={() => {
-				setMustFinish(true);
-				setDuration(FAST_DURATION);
+				setIsHovering(false);
 			}}
 		>
 			{[...images, ...images].map((item, index) => (

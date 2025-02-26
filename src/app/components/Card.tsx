@@ -12,7 +12,7 @@ const Card: React.FC<CardProps> = ({ image }) => {
 	const [showOverlay, setShowOverlay] = useState(false);
 	return (
 		<motion.div
-			className="relative overflow-hidden h-[400px] min-w-[400px] bg-darkLight rounded-xl flex justify-center items-center hover:cursor-pointer"
+			className="relative overflow-hidden h-[400px] min-w-[400px] bg-darkLight rounded-xl flex justify-center items-center hover:cursor-pointer hover:scale-105"
 			onHoverStart={() => setShowOverlay(true)}
 			onHoverEnd={() => setShowOverlay(false)}
 		>
