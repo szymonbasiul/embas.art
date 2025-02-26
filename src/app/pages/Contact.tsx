@@ -27,10 +27,10 @@ export default function Contact() {
 	}
 
 	return (
-		<section id="kontakt" className="contact">
-			<footer className="text-beigeLight bg-dark text-center p-4">
+		<section id="kontakt" className="contact ">
+			<div className="text-beigeLight bg-dark text-center p-4">
 				<div className="container flex flex-col items-center justify-center p-4 text-base text-justify md:text-lg sm:text-md leading-relaxed">
-					<h2 className="section-title pt-[2em] pb-[1em] text-beigeLight text-4xl md:text-3xl sm:text-2xl font-bold uppercase drop-shadow-lg">
+					<h2 className="section-title pt-[0.2em] pb-[1em] text-beigeLight text-5xl md:text-4xl sm:text-3xl font-bold uppercase drop-shadow-lg">
 						Kontakt
 					</h2>
 
@@ -54,7 +54,7 @@ export default function Contact() {
 									</div>
 									<div className="contact-email flex gap-2  md:justify-start">
 										<Image rel="icon" src={mail} alt="Mail icon" sizes="any" />
-										<span> 123@123.com</span>
+										<span> email@email.com</span>
 									</div>
 									<div className="contact-work flex gap-2  md:justify-start">
 										<Image
@@ -97,7 +97,7 @@ export default function Contact() {
 									type="email"
 									id="email"
 									name="email"
-									placeholder="email@example.com"
+									placeholder="email@email.com"
 									className="w-full p-3 mt-2 border border-gray-300 rounded-md"
 									required
 								/>
@@ -123,7 +123,7 @@ export default function Contact() {
 						</form>
 					</div>
 				</div>
-			</footer>
+			</div>
 		</section>
 	);
 }

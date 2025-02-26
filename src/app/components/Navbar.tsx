@@ -12,8 +12,9 @@ export default function Navbar() {
 	const [isVisible, setIsVisible] = useState(false);
 	const [activeLink, setActiveLink] = useState('home');
 
+	// Funkcja do określenia aktywnej sekcji na podstawie scrolla
 	const determineActiveSection = () => {
-		for (let i = sectionIds.length - 1; i >= 0; i--) {
+		for (let i = 0; i < sectionIds.length; i++) {
 			const section = document.getElementById(sectionIds[i]);
 			if (section) {
 				const rect = section.getBoundingClientRect();
@@ -29,19 +30,23 @@ export default function Navbar() {
 		setIsVisible(!isVisible);
 	};
 
+	// Nasłuchiwanie na przewijanie strony
 	useEffect(() => {
 		const handleScroll = () => {
+			// Zmiana koloru tła nawigacji po przewinięciu
 			if (window.scrollY > 100) {
 				setScroll(true);
 			} else {
 				setScroll(false);
 			}
+
+			// Wywołanie funkcji do określenia aktywnej sekcji
 			determineActiveSection();
 		};
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, [determineActiveSection]);
+	}, []); // [] zapewnia, że funkcja będzie nasłuchiwała tylko raz
 
 	return (
 		<nav
@@ -49,10 +54,12 @@ export default function Navbar() {
 				scroll ? 'bg-opacity-85' : 'bg-opacity-100'
 			}`}
 		>
-			<div className="logo flex w-auto ">
+			<div className="logo flex w-auto">
 				<Link href="#home" className="flex container h-full p-5">
 					<Image src="icon.svg" width={60} height={60} alt="Logo MB" />
-					<p className="text-2xl flex h-full p-4 font-bold">Marek Basiul</p>{' '}
+					<p className="text-2xl flex h-full p-4 font-bold">
+						Marek Basiul
+					</p>{' '}
 				</Link>
 			</div>
 			<div className="nav-links flex h-full px-5">
@@ -61,12 +68,14 @@ export default function Navbar() {
 						<li
 							key={i}
 							className={`flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-25 delay-100 duration-500 ease-in-out px-5 uppercase ${
-								sectionId === activeLink ? 'hover:bg-darkLight hover:bg-opacity-25' : ''
+								sectionId === activeLink
+									? 'bg-darkLight bg-opacity-25 text-beigeLight'
+									: ''
 							}`}
 						>
 							<Link
 								href={`#${sectionId}`}
-								className={`flex w-full h-full items-center justify-center  ${
+								className={`flex w-full h-full items-center justify-center ${
 									sectionId === activeLink ? 'active-link ' : ''
 								}`}
 							>
