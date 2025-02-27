@@ -57,7 +57,7 @@ export default function Navbar() {
 			<div className="logo flex w-auto">
 				<Link href="#home" className="flex container h-full p-5">
 					<Image src="icon.svg" width={60} height={60} alt="Logo MB" />
-					<p className="text-2xl flex h-full p-4 font-bold">
+					<p className="text-2xl flex h-full p-4 font-bol uppercase">
 						Marek Basiul
 					</p>{' '}
 				</Link>
@@ -67,9 +67,9 @@ export default function Navbar() {
 					{sectionIds.map((sectionId, i) => (
 						<li
 							key={i}
-							className={`flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-25 delay-100 duration-500 ease-in-out px-5 uppercase ${
+							className={`flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-75 delay-100 duration-500 ease-in-out px-5 uppercase ${
 								sectionId === activeLink
-									? 'bg-darkLight bg-opacity-25 text-beigeLight'
+									? 'bg-darkLight bg-opacity-75 text-beigeLight'
 									: ''
 							}`}
 						>
@@ -106,9 +106,9 @@ export default function Navbar() {
 						{sectionIds.map((sectionId, i) => (
 							<li
 								key={i}
-								className={`flex justify-center items-center hover:bg-darkLight hover:bg-opacity-25 hover:text-beigeLight delay-100 duration-500 ease-in-out uppercase ${
+								className={`flex justify-center items-center hover:bg-darkLight hover:bg-opacity-75 hover:text-beigeLight delay-100 duration-500 ease-in-out uppercase ${
 									sectionId === activeLink
-										? 'bg-darkLight bg-opacity-25 text-beigeLight'
+										? 'bg-darkLight bg-opacity-75 text-beigeLight'
 										: ''
 								}`}
 							>
