@@ -1,133 +1,114 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import close from '../../../public/close.svg';
-import burger from '../../../public/burger-menu.svg';
 import Link from 'next/link';
+import closeIcon from '../../../public/close.svg';
+import burgerIcon from '../../../public/burger-menu.svg';
 
 export default function Navbar() {
 	const sectionIds = ['home', 'biografia', 'galeria', 'kontakt'];
-
 	const [scroll, setScroll] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const [activeLink, setActiveLink] = useState('home');
 
-	// Funkcja do określenia aktywnej sekcji na podstawie scrolla
+	// Funkcja do określania aktywnej sekcji na podstawie scrolla
 	const determineActiveSection = () => {
-		for (let i = 0; i < sectionIds.length; i++) {
-			const section = document.getElementById(sectionIds[i]);
+		sectionIds.forEach((id) => {
+			const section = document.getElementById(id);
 			if (section) {
 				const rect = section.getBoundingClientRect();
 				if (rect.top <= 120 && rect.bottom >= 120) {
-					setActiveLink(sectionIds[i]);
-					return;
+					setActiveLink(id);
 				}
 			}
-		}
+		});
 	};
 
-	const toggleMenu = () => {
-		setIsVisible(!isVisible);
-	};
-
-	// Nasłuchiwanie na przewijanie strony
+	// Funkcja do obsługi scrolla
 	useEffect(() => {
 		const handleScroll = () => {
-			// Zmiana koloru tła nawigacji po przewinięciu
-			if (window.scrollY > 100) {
-				setScroll(true);
-			} else {
-				setScroll(false);
-			}
-
-			// Wywołanie funkcji do określenia aktywnej sekcji
+			setScroll(window.scrollY > 100);
 			determineActiveSection();
 		};
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, []); // [] zapewnia, że funkcja będzie nasłuchiwała tylko raz
+	}, []);
+
+	const toggleMenu = () => setIsVisible(!isVisible);
 
 	return (
 		<nav
-			className={`nav justify-between flex h-[110px] w-full items-center bg-dark text-beigeLight top-0 sticky transition-all delay-200 duration-500 ease z-30 ${
-				scroll ? 'bg-opacity-85' : 'bg-opacity-100'
+			className={`fixed top-0 w-full h-[110px] flex justify-between items-center px-5 bg-dark text-beigeLight transition-all duration-500 ease-in-out z-30 ${
+				scroll ? 'bg-opacity-85 shadow-lg' : 'bg-opacity-100'
 			}`}
 		>
-			<div className="logo flex w-auto">
-				<Link href="#home" className="flex container h-full p-5">
-					<Image src="icon.svg" width={60} height={60} alt="Logo MB" />
-					<p className="text-2xl flex h-full p-4 font-bol uppercase">
-						Marek Basiul
-					</p>{' '}
+			{/* Logo */}
+			<div className="flex items-center">
+				<Link href="#home" className="flex items-center">
+					<Image
+						src="/icon.jpg"
+						width={80}
+						height={80}
+						alt="Logo MB"
+						className="h-[80px] w-[80px] rounded-md object-cover"
+					/>
+					<p className="text-2xl px-4 uppercase font-bold">Marek Basiul</p>
 				</Link>
 			</div>
-			<div className="nav-links flex h-full px-5">
-				<ul className="md:flex hidden justify-between items-center h-full table-of-contents">
-					{sectionIds.map((sectionId, i) => (
-						<li
-							key={i}
-							className={`flex h-full justify-center items-center hover:bg-darkLight hover:bg-opacity-75 delay-100 duration-500 ease-in-out px-5 uppercase ${
-								sectionId === activeLink
-									? 'bg-darkLight bg-opacity-75 text-beigeLight'
-									: ''
+
+			{/* Nawigacja desktopowa */}
+			<ul className="hidden md:flex space-x-8 uppercase font-semibold h-full">
+				{sectionIds.map((id) => (
+					<li key={id} className="flex-1 h-full">
+						<Link
+							href={`#${id}`}
+							className={`flex items-center justify-center w-full h-full p-8 transition duration-300 ${
+								id === activeLink
+									? 'bg-darkLight text-white'
+									: 'hover:bg-darkLight hover:bg-opacity-75'
 							}`}
 						>
+							{id.charAt(0).toUpperCase() + id.slice(1)}
+						</Link>
+					</li>
+				))}
+			</ul>
+
+			{/* Przycisk menu mobilnego */}
+			<button className="md:hidden z-30" onClick={toggleMenu}>
+				<Image
+					src={isVisible ? closeIcon : burgerIcon}
+					width={40}
+					height={40}
+					alt="Menu toggle"
+				/>
+			</button>
+
+			{/* Nawigacja mobilna */}
+			<div
+				className={`fixed top-0 right-0 w-full h-screen bg-dark bg-opacity-95 flex flex-col items-center justify-center transition-transform duration-500 ease-in-out z-20 ${
+					isVisible ? 'translate-x-0' : 'translate-x-full'
+				}`}
+			>
+				<ul className="space-y-8 text-2xl font-semibold">
+					{sectionIds.map((id) => (
+						<li key={id} className="w-full text-center">
 							<Link
-								href={`#${sectionId}`}
-								className={`flex w-full h-full items-center justify-center ${
-									sectionId === activeLink ? 'active-link ' : ''
+								href={`#${id}`}
+								onClick={toggleMenu}
+								className={`block w-full py-4 px-6 rounded-md text-white transition duration-300 ease-in-out ${
+									id === activeLink
+										? 'bg-darkLight text-white' // Aktywna sekcja
+										: 'hover:bg-darkLight hover:bg-opacity-75' // Efekt hover
 								}`}
 							>
-								<div className="text-2xl text-center font-bold">
-									{sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}
-								</div>
+								{id.charAt(0).toUpperCase() + id.slice(1)}
 							</Link>
 						</li>
 					))}
 				</ul>
-				<button className="menu md:hidden p-5 z-30" onClick={toggleMenu}>
-					{isVisible ? (
-						<Image src={close} width={60} height={60} alt="Close menu" />
-					) : (
-						<Image src={burger} width={60} height={60} alt="Open menu" />
-					)}
-				</button>
 			</div>
-			{isVisible && (
-				<div
-					className={`mobile-nav fixed block bg-dark bg-opacity-85 top-[110px] w-full h-screen transition-transform delay-300 duration-[1500ms] ease-in-out z-20 ${
-						isVisible
-							? 'transform translate-x-0'
-							: 'transform -translate-x-full'
-					}`}
-				>
-					<ul className="justify-between items-center h-screen table-of-contents">
-						{sectionIds.map((sectionId, i) => (
-							<li
-								key={i}
-								className={`flex justify-center items-center hover:bg-darkLight hover:bg-opacity-75 hover:text-beigeLight delay-100 duration-500 ease-in-out uppercase ${
-									sectionId === activeLink
-										? 'bg-darkLight bg-opacity-75 text-beigeLight'
-										: ''
-								}`}
-							>
-								<Link
-									href={`#${sectionId}`}
-									onClick={toggleMenu}
-									className={`flex w-full h-full items-center justify-center p-5 ${
-										sectionId === activeLink ? 'active-link' : ''
-									}`}
-								>
-									<div className="text-2xl text-center font-bold">
-										{sectionId.charAt(0).toUpperCase() + sectionId.slice(1)}
-									</div>
-								</Link>
-							</li>
-						))}
-					</ul>
-				</div>
-			)}
 		</nav>
 	);
 }

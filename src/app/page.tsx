@@ -1,9 +1,9 @@
-import Footer from './pages/Footer';
-import Header from './pages/Header';
+import Footer from './components/Footer';
+import Header from './components/Header';
 import Navbar from './components/Navbar';
-import Biography from './pages/Biography';
-import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
+import Biography from './components/Biography';
+import Contact from './components/Contact';
+import Gallery from './components/Gallery';
 
 export default function Home() {
 	return (
