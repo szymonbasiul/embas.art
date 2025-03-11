@@ -4,31 +4,31 @@ import Link from 'next/link';
 const galleryLinks = [
 	{
 		title: 'Małe formy',
-		path: '/galeria/male', // Link do strony z wszystkimi zdjęciami tej kategorii
+		path: '/galeria/male',
 		imageSrc: '/strona_m/samson.jpg',
-		width: 400, // Szerokość obrazu
-		height: 250, // Wysokość obrazu
+		width: 400,
+		height: 250,
 	},
 	{
 		title: 'Duże formy',
-		path: '/galeria/duze', // Link do strony z wszystkimi zdjęciami tej kategorii
+		path: '/galeria/duze',
 		imageSrc: '/strona_d/batszeba.jpg',
-		width: 400, // Szerokość obrazu
-		height: 250, // Wysokość obrazu
+		width: 400,
+		height: 250,
 	},
 	{
 		title: 'Exlibrys',
-		path: '/galeria/exlibrys', // Link do strony z wszystkimi zdjęciami tej kategorii
+		path: '/galeria/exlibrys',
 		imageSrc: '/strona_ex/t_mse.jpg',
-		width: 400, // Szerokość obrazu
-		height: 250, // Wysokość obrazu
+		width: 400,
+		height: 250,
 	},
 	{
 		title: 'Wielkoformatowe',
-		path: '/galeria/wielkoformatowe', // Link do strony z wszystkimi zdjęciami tej kategorii
+		path: '/galeria/wielkoformatowe',
 		imageSrc: '/strona_w/mb_wenus.jpg',
-		width: 400, // Szerokość obrazu
-		height: 250, // Wysokość obrazu
+		width: 400,
+		height: 250,
 	},
 ];
 
@@ -47,7 +47,6 @@ const Gallery: React.FC = () => {
 						>
 							<Link href={link.path}>
 								<div className="relative block h-full">
-									{/* Obrazek */}
 									<Image
 										src={link.imageSrc}
 										alt={link.title}
@@ -55,13 +54,13 @@ const Gallery: React.FC = () => {
 										width={link.width}
 										height={link.height}
 									/>
-									{/* Półprzeźroczyste tło i napis "Zobacz" - widoczny po hoverze */}
+
 									<div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
 										<span className="text-xl font-bold text-beigeLight uppercase tracking-widest">
 											Zobacz
 										</span>
 									</div>
-									{/* Tytuł galerii */}
+
 									<div className="p-4">
 										<h3 className="text-xl font-semibold text-dark text-center z-20">
 											{link.title}
