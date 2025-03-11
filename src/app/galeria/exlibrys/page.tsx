@@ -76,6 +76,7 @@ const Exlibrys: React.FC = () => {
 							className="rounded-lg shadow-lg max-w-full sm:max-w-[800px] max-h-[500px] sm:max-h-[600px] object-contain transition-all duration-300 ease-in-out"
 							width={800}
 							height={600}
+							quality={75}
 							priority
 						/>
 					</div>
@@ -108,6 +109,7 @@ const Exlibrys: React.FC = () => {
 							className="w-24 h-16 object-cover rounded-lg"
 							width={100}
 							height={66}
+							quality={75}
 						/>
 					</button>
 				))}

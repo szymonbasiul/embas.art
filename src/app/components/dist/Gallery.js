@@ -39,7 +39,7 @@ var Gallery = function () {
             React.createElement("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8" }, galleryLinks.map(function (link, index) { return (React.createElement("div", { key: index, className: "gallery-card bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl group" },
                 React.createElement(link_1["default"], { href: link.path },
                     React.createElement("div", { className: "relative block h-full" },
-                        React.createElement(image_1["default"], { src: link.imageSrc, alt: link.title, className: "w-full h-64 object-cover object-center sm:h-80 md:h-96", width: link.width, height: link.height }),
+                        React.createElement(image_1["default"], { src: link.imageSrc, alt: link.title, className: "w-full h-64 object-cover object-center sm:h-80 md:h-96", width: link.width, height: link.height, quality: 75 }),
                         React.createElement("div", { className: "absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" },
                             React.createElement("span", { className: "text-xl font-bold text-beigeLight uppercase tracking-widest" }, "Zobacz")),
                         React.createElement("div", { className: "p-4" },

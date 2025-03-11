@@ -53,6 +53,7 @@ const Gallery: React.FC = () => {
 										className="w-full h-64 object-cover object-center sm:h-80 md:h-96"
 										width={link.width}
 										height={link.height}
+										quality={75}
 									/>
 
 									<div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

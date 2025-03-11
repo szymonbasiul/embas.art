@@ -41,14 +41,14 @@ var Male = function () {
                     React.createElement(image_1["default"], { src: filled_la_png_1["default"], alt: "Poprzednie", width: 50, height: 50 }))),
             React.createElement("div", { className: "w-full flex justify-center items-center overflow-x-auto" },
                 React.createElement("div", { className: "flex sm:flex-nowrap flex-wrap justify-center items-center sm:gap-4 gap-6" },
-                    React.createElement(image_1["default"], { src: smallImages[currentIndex], alt: "Ma\u0142e Formy " + (currentIndex + 1), className: "rounded-lg shadow-lg max-w-full sm:max-w-[800px] max-h-[500px] sm:max-h-[600px] object-contain transition-all duration-300 ease-in-out", width: 800, height: 600, priority: true }))),
+                    React.createElement(image_1["default"], { src: smallImages[currentIndex], alt: "Ma\u0142e Formy " + (currentIndex + 1), className: "rounded-lg shadow-lg max-w-full sm:max-w-[800px] max-h-[500px] sm:max-h-[600px] object-contain transition-all duration-300 ease-in-out", width: 800, height: 600, quality: 75, priority: true }))),
             React.createElement("div", { className: "absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 hidden sm:block" },
                 React.createElement("button", { onClick: nextImage, className: "p-4 bg-black bg-opacity-50 text-white rounded-full hover:bg-opacity-80 transition" },
                     React.createElement(image_1["default"], { src: filled_ra_png_1["default"], alt: "Nast\u0119pne", width: 50, height: 50 })))),
         React.createElement("div", { className: "mt-4 flex justify-center sm:overflow-x-auto sm:whitespace-nowrap gap-2 flex-wrap sm:flex-nowrap" }, smallImages.map(function (src, index) { return (React.createElement("button", { key: index, onClick: function () { return setCurrentIndex(index); }, className: "border-2 rounded-lg overflow-hidden " + (currentIndex === index
                 ? 'border-beigeLight'
                 : 'border-transparent') + " hover:border-beigeLight transition" },
-            React.createElement(image_1["default"], { src: src, alt: "Miniatura " + (index + 1), className: "w-24 h-16 object-cover rounded-lg", width: 100, height: 66 }))); })),
+            React.createElement(image_1["default"], { src: src, alt: "Miniatura " + (index + 1), className: "w-24 h-16 object-cover rounded-lg", width: 100, height: 66, quality: 75 }))); })),
         React.createElement("div", { className: "mt-8 text-center" },
             React.createElement(link_1["default"], { href: "/#galeria", className: "px-6 py-3 bg-beigeLight text-dark font-bold rounded-lg shadow-md hover:bg-opacity-80 transition" }, "Powr\u00F3t do galerii"))));
 };
